@@ -1,0 +1,2887 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Education CRM Api",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/": {},
+        "/api/register": {
+            "post": {
+                "tags": [
+                    "Authentication"
+                ],
+                "summary": "Register",
+                "operationId": "Register",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "John Adams"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "format": "email",
+                                        "example": "user@gmail.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "format": "password",
+                                        "example": "abc123456"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "name": {
+                                                    "type": "string",
+                                                    "format": "text",
+                                                    "example": "John Adams"
+                                                },
+                                                "email": {
+                                                    "type": "string",
+                                                    "format": "email",
+                                                    "example": "user@gmail.com"
+                                                },
+                                                "password": {
+                                                    "type": "string",
+                                                    "format": "password",
+                                                    "example": "abc123"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/auth/login": {
+            "post": {
+                "tags": [
+                    "Authentication"
+                ],
+                "summary": "Login",
+                "description": "Login with email and password",
+                "operationId": "loginUser",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "email": {
+                                        "type": "string",
+                                        "format": "email",
+                                        "example": "user@gmail.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "format": "password",
+                                        "example": "abc123"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "email": {
+                                                    "type": "string",
+                                                    "format": "email",
+                                                    "example": "user@gmail.com"
+                                                },
+                                                "password": {
+                                                    "type": "string",
+                                                    "format": "password",
+                                                    "example": "abc123"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/courses": {
+            "get": {
+                "tags": [
+                    "Courses"
+                ],
+                "summary": "Get list of courses",
+                "description": "Returns list of courses",
+                "operationId": "df5cfe3ec2c1d6bdc815652059af1502",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "name": {
+                                                "type": "string",
+                                                "example": "Math 101"
+                                            },
+                                            "description": {
+                                                "type": "string",
+                                                "example": "Basic mathematics"
+                                            },
+                                            "price": {
+                                                "type": "integer",
+                                                "example": 3
+                                            },
+                                            "room_id": {
+                                                "type": "integer",
+                                                "example": 1
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Courses"
+                ],
+                "summary": "Create a new course",
+                "operationId": "e3735861009fb8f5bb551fcd23c4e6aa",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Math 101"
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "example": "Basic mathematics"
+                                    },
+                                    "price": {
+                                        "type": "integer",
+                                        "example": 3
+                                    },
+                                    "room_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Course created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "course": {
+                                            "properties": {
+                                                "name": {
+                                                    "type": "string",
+                                                    "example": "Math 101"
+                                                },
+                                                "description": {
+                                                    "type": "string",
+                                                    "example": "Basic mathematics"
+                                                },
+                                                "price": {
+                                                    "type": "integer",
+                                                    "example": 3
+                                                },
+                                                "room_id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/courses/{courseId}/add-student": {
+            "post": {
+                "tags": [
+                    "Courses"
+                ],
+                "summary": "Add a student to a course",
+                "description": "Adds a student to a specific course",
+                "operationId": "52b4b844cd15353981f6ae8fa87732d5",
+                "parameters": [
+                    {
+                        "name": "courseId",
+                        "in": "path",
+                        "description": "ID of the course",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "student_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Student added to course successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Student added to course successfully"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "Invalid data provided"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Student not found"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/courses/{id}": {
+            "get": {
+                "tags": [
+                    "Courses"
+                ],
+                "summary": "Get a course by ID",
+                "operationId": "9d444899c0eea57b198b07745dfeb99b",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the course to return",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "course": {
+                                            "properties": {
+                                                "name": {
+                                                    "type": "string",
+                                                    "example": "Math 101"
+                                                },
+                                                "description": {
+                                                    "type": "string",
+                                                    "example": "Basic mathematics"
+                                                },
+                                                "price": {
+                                                    "type": "integer",
+                                                    "example": 3
+                                                },
+                                                "student-count": {
+                                                    "type": "integer",
+                                                    "example": 3
+                                                },
+                                                "room_id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Courses"
+                ],
+                "summary": "Update a course",
+                "operationId": "acc1fb25618eca0ca4f7c9351f89159e",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of course to update",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Math 101"
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "example": "Basic mathematics"
+                                    },
+                                    "price": {
+                                        "type": "integer",
+                                        "example": 3
+                                    },
+                                    "room_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Course updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "course": {
+                                            "properties": {
+                                                "name": {
+                                                    "type": "string",
+                                                    "example": "Math 101"
+                                                },
+                                                "description": {
+                                                    "type": "string",
+                                                    "example": "Basic mathematics"
+                                                },
+                                                "price": {
+                                                    "type": "integer",
+                                                    "example": 3
+                                                },
+                                                "room_id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Courses"
+                ],
+                "summary": "Delete a course",
+                "operationId": "96ec6735185fdd95188d94afd17c82ce",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of course to delete",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Course deleted successfully"
+                    },
+                    "404": {
+                        "description": "Course not found"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/educations": {
+            "get": {
+                "tags": [
+                    "Educations"
+                ],
+                "summary": "Get list of educations",
+                "description": "Returns list of educations",
+                "operationId": "01c8783473fc944cd990bf9e50287f07",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "name": {
+                                                "type": "string",
+                                                "example": "Abbos"
+                                            },
+                                            "phone": {
+                                                "type": "string",
+                                                "example": "+998901234567"
+                                            },
+                                            "course_count": {
+                                                "type": "integer",
+                                                "example": 3
+                                            },
+                                            "student_count": {
+                                                "type": "integer",
+                                                "example": 10
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Educations"
+                ],
+                "summary": "Create a new education",
+                "operationId": "1ecef9f999236c03025569ecfd2dab10",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Abbos"
+                                    },
+                                    "phone": {
+                                        "type": "string",
+                                        "example": "+998901234567"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Education created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "name": {
+                                                    "type": "string",
+                                                    "example": "Abbos"
+                                                },
+                                                "phone": {
+                                                    "type": "string",
+                                                    "example": "+998901234567"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/educations/{id}": {
+            "get": {
+                "tags": [
+                    "Educations"
+                ],
+                "summary": "Get an education by ID",
+                "operationId": "6402e759d48e9a4b93e468c99a78cbec",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the education to return",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "name": {
+                                                    "type": "string",
+                                                    "example": "Abbos"
+                                                },
+                                                "phone": {
+                                                    "type": "string",
+                                                    "example": "+998901234567"
+                                                },
+                                                "course_count": {
+                                                    "type": "integer",
+                                                    "example": 3
+                                                },
+                                                "student_count": {
+                                                    "type": "integer",
+                                                    "example": 10
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Educations"
+                ],
+                "summary": "Update an education",
+                "operationId": "e0ad7432e560a1f13f159574ac851136",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of education to update",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Abbos"
+                                    },
+                                    "phone": {
+                                        "type": "string",
+                                        "example": "+998901234567"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Education updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "name": {
+                                                    "type": "string",
+                                                    "example": "Abbos"
+                                                },
+                                                "phone": {
+                                                    "type": "string",
+                                                    "example": "+998901234567"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Educations"
+                ],
+                "summary": "Delete an education",
+                "operationId": "677575f47b6bf3f7df473c355824822f",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of education to delete",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Education deleted successfully"
+                    },
+                    "404": {
+                        "description": "Education not found"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/rooms": {
+            "get": {
+                "tags": [
+                    "Rooms"
+                ],
+                "summary": "Get list of rooms",
+                "description": "Returns list of rooms",
+                "operationId": "32c76b4b04564659f39a00ba8fc4e7a9",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "number": {
+                                                "type": "number",
+                                                "example": 101
+                                            },
+                                            "quantity_of_tables": {
+                                                "type": "integer",
+                                                "example": 20
+                                            },
+                                            "description": {
+                                                "type": "string",
+                                                "example": "First floor room"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Rooms"
+                ],
+                "summary": "Create a new room",
+                "operationId": "f1bb0d881bb452b777d9fcac05506c6e",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "number": {
+                                        "type": "number",
+                                        "example": 101
+                                    },
+                                    "quantity_of_tables": {
+                                        "type": "integer",
+                                        "example": 20
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "example": "First floor room"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Room created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/rooms/{id}": {
+            "get": {
+                "tags": [
+                    "Rooms"
+                ],
+                "summary": "Get a room by ID",
+                "operationId": "fade96f8543a24ae7c45c8a307294864",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the room to return",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "room": {
+                                            "properties": {
+                                                "number": {
+                                                    "type": "number",
+                                                    "example": 101
+                                                },
+                                                "quantity_of_tables": {
+                                                    "type": "integer",
+                                                    "example": 20
+                                                },
+                                                "description": {
+                                                    "type": "string",
+                                                    "example": "First floor room"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Rooms"
+                ],
+                "summary": "Update a room",
+                "operationId": "1c9e92e9289faea9c54fa35b96b68287",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of room to update",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "number": {
+                                        "type": "number",
+                                        "example": 101
+                                    },
+                                    "quantity_of_tables": {
+                                        "type": "integer",
+                                        "example": 20
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "example": "First floor room"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Room updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "number": {
+                                                    "type": "number",
+                                                    "example": 101
+                                                },
+                                                "quantity_of_tables": {
+                                                    "type": "integer",
+                                                    "example": 20
+                                                },
+                                                "description": {
+                                                    "type": "string",
+                                                    "example": "First floor room"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Rooms"
+                ],
+                "summary": "Delete a room",
+                "operationId": "dcf086026da40af3d352e8e4afd67d06",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of room to delete",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Room deleted successfully"
+                    },
+                    "404": {
+                        "description": "Room not found"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/skills": {
+            "get": {
+                "tags": [
+                    "Skills"
+                ],
+                "summary": "Get list of skills",
+                "description": "Returns list of skills",
+                "operationId": "ec7a92aeb5d3d0b3ab716e0be163c66b",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "name": {
+                                                "type": "string",
+                                                "example": "Abbos"
+                                            },
+                                            "description": {
+                                                "type": "string",
+                                                "example": "xona"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Skills"
+                ],
+                "summary": "Create a new skill",
+                "operationId": "d4dd5007835252b46af8d58b91d004a9",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Abbos"
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "example": "10-xona"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Skill created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "name": {
+                                                    "type": "string",
+                                                    "example": "Abbos"
+                                                },
+                                                "description": {
+                                                    "type": "string",
+                                                    "example": "10-xona"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/skills/{id}": {
+            "get": {
+                "tags": [
+                    "Skills"
+                ],
+                "summary": "Get a skill by ID",
+                "operationId": "64a3c8420cdff33d9a307e46f5031e26",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the skill to return",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "name": {
+                                                    "type": "string",
+                                                    "example": "Abbos"
+                                                },
+                                                "description": {
+                                                    "type": "string",
+                                                    "example": "10-xona"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Skills"
+                ],
+                "summary": "Update a skill",
+                "operationId": "05813ef887f0ab6fd3c20afbf3db901b",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of skill to update",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Abbos"
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "example": "10-xona"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Skill updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "name": {
+                                                    "type": "string",
+                                                    "example": "Abbos"
+                                                },
+                                                "description": {
+                                                    "type": "string",
+                                                    "example": "10-xona"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Skills"
+                ],
+                "summary": "Delete a skill",
+                "operationId": "b242fe40ded7476be9d002ac9515ed52",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of skill to delete",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Skill deleted successfully"
+                    },
+                    "404": {
+                        "description": "Skill not found"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/students": {
+            "get": {
+                "tags": [
+                    "Students"
+                ],
+                "summary": "Get list of students",
+                "description": "Returns list of students",
+                "operationId": "9279b561b8c74f56f9b1b016a816008c",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "user_id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "name": {
+                                                    "type": "string",
+                                                    "example": "Abbos"
+                                                },
+                                                "email": {
+                                                    "type": "string",
+                                                    "example": "user@gmail.com"
+                                                },
+                                                "phone": {
+                                                    "type": "string",
+                                                    "example": "+911217628"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Students"
+                ],
+                "summary": "Create a new student",
+                "operationId": "3ff5cca2375e0b68f91a12c10896a3ea",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "user_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Abbos"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "example": "user@gmail.com"
+                                    },
+                                    "phone": {
+                                        "type": "string",
+                                        "example": "+911217628"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Student created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "user_id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "name": {
+                                                    "type": "string",
+                                                    "example": "Abbos"
+                                                },
+                                                "email": {
+                                                    "type": "string",
+                                                    "example": "user@gmail.com"
+                                                },
+                                                "phone": {
+                                                    "type": "string",
+                                                    "example": "+911217628"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/students/{id}": {
+            "get": {
+                "tags": [
+                    "Students"
+                ],
+                "summary": "Get a student by ID",
+                "operationId": "2907b1a81d0eec1a569440ebb489087f",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the student to return",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "user_id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "name": {
+                                                    "type": "string",
+                                                    "example": "Abbos"
+                                                },
+                                                "email": {
+                                                    "type": "string",
+                                                    "example": "user@gmail.com"
+                                                },
+                                                "phone": {
+                                                    "type": "string",
+                                                    "example": "911217628"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Students"
+                ],
+                "summary": "Update a student",
+                "operationId": "f7862a153308c2f2d16b8597b0fd0f4d",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of student to update",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "user_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Abbos"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "example": "user@gmail.com"
+                                    },
+                                    "phone": {
+                                        "type": "string",
+                                        "example": "+911217628"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Student updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "user_id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "name": {
+                                                    "type": "string",
+                                                    "example": "Abbos"
+                                                },
+                                                "email": {
+                                                    "type": "string",
+                                                    "example": "user@gmail.com"
+                                                },
+                                                "phone": {
+                                                    "type": "string",
+                                                    "example": "+911217628"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Students"
+                ],
+                "summary": "Delete a student",
+                "operationId": "0146dfa9e9abf58e303a3d8eaa85c05f",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of student to delete",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Student deleted successfully"
+                    },
+                    "404": {
+                        "description": "Student not found"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/teachers": {
+            "get": {
+                "tags": [
+                    "Teachers"
+                ],
+                "summary": "Get list of teachers",
+                "description": "Returns list of teachers",
+                "operationId": "2979badd3972683932b0d6d4d69900fa",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "name": {
+                                                    "type": "string",
+                                                    "example": "John Doe"
+                                                },
+                                                "skill_id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "room_id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "course_id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "user_id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "phone": {
+                                                    "type": "string",
+                                                    "example": "+123456789"
+                                                },
+                                                "salary": {
+                                                    "type": "integer",
+                                                    "example": 50000
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Teachers"
+                ],
+                "summary": "Create a new teacher",
+                "operationId": "5e0f38e3163529ab40f4263056fce8ad",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "John Doe"
+                                    },
+                                    "skill_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "room_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "course_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "user_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "phone": {
+                                        "type": "string",
+                                        "example": "+123456789"
+                                    },
+                                    "salary": {
+                                        "type": "integer",
+                                        "example": 50000
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Teacher created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "name": {
+                                                    "type": "string",
+                                                    "example": "John Doe"
+                                                },
+                                                "skill_id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "room_id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "course_id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "user_id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "phone": {
+                                                    "type": "string",
+                                                    "example": "+123456789"
+                                                },
+                                                "salary": {
+                                                    "type": "integer",
+                                                    "example": 50000
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/teachers/{teacherId}/add-course": {
+            "post": {
+                "tags": [
+                    "Teachers"
+                ],
+                "summary": "Add a course to a teacher",
+                "description": "Adds a course to a specific teacher",
+                "operationId": "02f5f31147ff469d111e9838e9914583",
+                "parameters": [
+                    {
+                        "name": "teacherId",
+                        "in": "path",
+                        "description": "ID of the teacher",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "course_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Course added to teacher successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Course added to teacher successfully"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "204": {
+                        "description": "Course added to teacher successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Course added to teacher successfully"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "Invalid data provided"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Teacher or Course not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "Teacher or Course not found"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/teachers/{id}": {
+            "get": {
+                "tags": [
+                    "Teachers"
+                ],
+                "summary": "Get a teacher by ID",
+                "operationId": "c92f313e1b0f25be66d4c0a912e166c3",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the teacher to return",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "name": {
+                                                    "type": "string",
+                                                    "example": "John Doe"
+                                                },
+                                                "phone": {
+                                                    "type": "string",
+                                                    "example": "+123456789"
+                                                },
+                                                "salary": {
+                                                    "type": "integer",
+                                                    "example": 50000
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Teachers"
+                ],
+                "summary": "Update a teacher",
+                "operationId": "b7aacebae3ed09ba7234de4f99bb422c",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of teacher to update",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "John Doe"
+                                    },
+                                    "skill_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "room_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "course_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "user_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "phone": {
+                                        "type": "string",
+                                        "example": "+123456789"
+                                    },
+                                    "salary": {
+                                        "type": "integer",
+                                        "example": 50000
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Teacher updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "name": {
+                                                    "type": "string",
+                                                    "example": "John Doe"
+                                                },
+                                                "skill_id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "room_id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "course_id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "user_id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "phone": {
+                                                    "type": "string",
+                                                    "example": "+123456789"
+                                                },
+                                                "salary": {
+                                                    "type": "integer",
+                                                    "example": 50000
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Teachers"
+                ],
+                "summary": "Delete a teacher",
+                "operationId": "439c713bfcad2e10aa5495c70e691fe6",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of teacher to delete",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Teacher deleted successfully"
+                    },
+                    "404": {
+                        "description": "Teacher not found"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/users": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Get all users",
+                "description": "Returns a list of all users",
+                "operationId": "2de50d9685640f415a9c02001843b92c",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "name": {
+                                                    "type": "string",
+                                                    "example": "Abbos"
+                                                },
+                                                "avatar": {
+                                                    "type": "string",
+                                                    "example": "abc123.jpg"
+                                                },
+                                                "email": {
+                                                    "type": "string",
+                                                    "example": "user@gmail.com"
+                                                },
+                                                "password": {
+                                                    "type": "string",
+                                                    "example": "abc123"
+                                                },
+                                                "role_id": {
+                                                    "type": "integer",
+                                                    "example": 2
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Create a new user",
+                "operationId": "1c9735f7c60172f0d942b218196784ec",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Abbos"
+                                    },
+                                    "avatar": {
+                                        "type": "string",
+                                        "example": "abc123.jpg"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "example": "user@gmail.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "example": "abc123"
+                                    },
+                                    "role_id": {
+                                        "type": "integer",
+                                        "example": 2,
+                                        "nullable": true
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "User created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "name": {
+                                                    "type": "string",
+                                                    "example": "Abbos"
+                                                },
+                                                "avatar": {
+                                                    "type": "string",
+                                                    "example": "abc123.jpg"
+                                                },
+                                                "email": {
+                                                    "type": "string",
+                                                    "example": "user@gmail.com"
+                                                },
+                                                "password": {
+                                                    "type": "string",
+                                                    "example": "abc123"
+                                                },
+                                                "role_id": {
+                                                    "type": "integer",
+                                                    "example": 2
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/users/{id}": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Get a user by ID",
+                "operationId": "4c4dd212985aa333cc1e681ad75b97bd",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the user to return",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "name": {
+                                                    "type": "string",
+                                                    "example": "Abbos"
+                                                },
+                                                "avatar": {
+                                                    "type": "string",
+                                                    "example": "abc123.jpg"
+                                                },
+                                                "email": {
+                                                    "type": "string",
+                                                    "example": "user@gmail.com"
+                                                },
+                                                "password": {
+                                                    "type": "string",
+                                                    "example": "abc123"
+                                                },
+                                                "role_id": {
+                                                    "type": "integer",
+                                                    "example": 2
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Update a user",
+                "operationId": "157b82ba79790322739af114d01714a4",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of user to update",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Abbos"
+                                    },
+                                    "avatar": {
+                                        "type": "string",
+                                        "example": "abc123.jpg"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "example": "user@gmail.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "example": "abc123"
+                                    },
+                                    "role_id": {
+                                        "type": "integer",
+                                        "example": 2
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "User updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "name": {
+                                                    "type": "string",
+                                                    "example": "Abbos"
+                                                },
+                                                "avatar": {
+                                                    "type": "string",
+                                                    "example": "abc123.jpg"
+                                                },
+                                                "email": {
+                                                    "type": "string",
+                                                    "example": "user@gmail.com"
+                                                },
+                                                "password": {
+                                                    "type": "string",
+                                                    "example": "abc123"
+                                                },
+                                                "role_id": {
+                                                    "type": "integer",
+                                                    "example": 2
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Delete a user",
+                "operationId": "87696b2aa9c35f123ab44fc1e5bef6b1",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of user to delete",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "User deleted successfully"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "StoreEducationRequest": {
+                "required": [
+                    "name",
+                    "phone"
+                ],
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "phone": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "StoreSkillRequest": {
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "example": "PHP"
+                    },
+                    "description": {
+                        "type": "string",
+                        "example": "A popular general-purpose scripting language"
+                    }
+                },
+                "type": "object"
+            },
+            "UpdateEducationRequest": {
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "phone": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "UpdateSkillRequest": {
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "example": "PHP"
+                    },
+                    "description": {
+                        "type": "string",
+                        "example": "A popular general-purpose scripting language"
+                    }
+                },
+                "type": "object"
+            },
+            "Course": {
+                "title": "Course",
+                "required": [
+                    "id",
+                    "name",
+                    "description",
+                    "duration"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "name": {
+                        "type": "string",
+                        "example": "Mathematics 101"
+                    },
+                    "description": {
+                        "type": "string",
+                        "example": "Basic Mathematics course"
+                    },
+                    "price": {
+                        "type": "integer",
+                        "example": 300
+                    },
+                    "room_id": {
+                        "type": "integer",
+                        "example": 2
+                    },
+                    "students": {
+                        "type": "array",
+                        "items": {
+                            "properties": {
+                                "user_id": {
+                                    "type": "integer",
+                                    "example": 1
+                                },
+                                "name": {
+                                    "type": "string",
+                                    "example": "Abbos"
+                                },
+                                "email": {
+                                    "type": "string",
+                                    "example": "user@gmail.com"
+                                },
+                                "phone": {
+                                    "type": "string",
+                                    "example": "911217628"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "Education": {
+                "title": "Education",
+                "required": [
+                    "id",
+                    "name",
+                    "phone",
+                    "course_count",
+                    "student_count"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "name": {
+                        "type": "string",
+                        "example": "Some Education"
+                    },
+                    "phone": {
+                        "type": "string",
+                        "example": "Some Phone"
+                    },
+                    "student_count": {
+                        "type": "integer",
+                        "example": 10
+                    },
+                    "course_count": {
+                        "type": "integer",
+                        "example": 3
+                    },
+                    "student": {
+                        "type": "array",
+                        "items": {
+                            "properties": {
+                                "id": {
+                                    "type": "integer",
+                                    "example": 1
+                                },
+                                "name": {
+                                    "type": "string",
+                                    "example": "Abbos"
+                                },
+                                "email": {
+                                    "type": "string",
+                                    "example": "user@gmail.com"
+                                },
+                                "phone": {
+                                    "type": "string",
+                                    "example": "911217628"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    },
+                    "course": {
+                        "type": "array",
+                        "items": {
+                            "properties": {
+                                "id": {
+                                    "type": "integer",
+                                    "example": 1
+                                },
+                                "name": {
+                                    "type": "string",
+                                    "example": "Mathematics 101"
+                                },
+                                "description": {
+                                    "type": "string",
+                                    "example": "Basic Mathematics course"
+                                },
+                                "price": {
+                                    "type": "integer",
+                                    "example": 300
+                                },
+                                "room_id": {
+                                    "type": "integer",
+                                    "example": 2
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "Room": {
+                "title": "Room",
+                "required": [
+                    "id",
+                    "number",
+                    "quantity_of_tables",
+                    "description"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "number": {
+                        "type": "integer",
+                        "example": 101
+                    },
+                    "quantity_of_tables": {
+                        "type": "integer",
+                        "example": 20
+                    },
+                    "description": {
+                        "type": "string",
+                        "example": "First floor room"
+                    },
+                    "teachers": {
+                        "type": "array",
+                        "items": {
+                            "properties": {
+                                "name": {
+                                    "type": "string",
+                                    "example": "John Doe"
+                                },
+                                "skill_id": {
+                                    "type": "integer",
+                                    "example": 1
+                                },
+                                "room_id": {
+                                    "type": "integer",
+                                    "example": 1
+                                },
+                                "user_id": {
+                                    "type": "integer",
+                                    "example": 1
+                                },
+                                "course_id": {
+                                    "type": "integer",
+                                    "example": 1
+                                },
+                                "phone": {
+                                    "type": "string",
+                                    "example": "+123456789"
+                                },
+                                "salary": {
+                                    "type": "integer",
+                                    "example": 50000
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "Skill": {
+                "title": "Skill",
+                "required": [
+                    "name",
+                    "description"
+                ],
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "example": "PHP"
+                    },
+                    "description": {
+                        "type": "string",
+                        "example": "A popular general-purpose scripting language"
+                    },
+                    "teachers": {
+                        "type": "array",
+                        "items": {
+                            "properties": {
+                                "name": {
+                                    "type": "string",
+                                    "example": "John Doe"
+                                },
+                                "skill_id": {
+                                    "type": "integer",
+                                    "example": 1
+                                },
+                                "room_id": {
+                                    "type": "integer",
+                                    "example": 1
+                                },
+                                "user_id": {
+                                    "type": "integer",
+                                    "example": 1
+                                },
+                                "course_id": {
+                                    "type": "integer",
+                                    "example": 1
+                                },
+                                "phone": {
+                                    "type": "string",
+                                    "example": "+123456789"
+                                },
+                                "salary": {
+                                    "type": "integer",
+                                    "example": 50000
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "Student": {
+                "title": "Student",
+                "required": [
+                    "id",
+                    "name",
+                    "email",
+                    "phone"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "name": {
+                        "type": "string",
+                        "example": "Abbos"
+                    },
+                    "email": {
+                        "type": "string",
+                        "example": "user@gmail.com"
+                    },
+                    "phone": {
+                        "type": "string",
+                        "example": "911217628"
+                    },
+                    "courses": {
+                        "type": "array",
+                        "items": {
+                            "properties": {
+                                "name": {
+                                    "type": "string",
+                                    "example": "Mathematics 101"
+                                },
+                                "description": {
+                                    "type": "string",
+                                    "example": "Basic Mathematics course"
+                                },
+                                "credits": {
+                                    "type": "integer",
+                                    "example": 300
+                                },
+                                "room_id": {
+                                    "type": "integer",
+                                    "example": 2
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "Teacher": {
+                "title": "Teacher",
+                "required": [
+                    "id",
+                    "name",
+                    "skill_id",
+                    "room_id",
+                    "user_id",
+                    "course_id",
+                    "phone",
+                    "salary"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "name": {
+                        "type": "string",
+                        "example": "John Doe"
+                    },
+                    "skill_id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "room_id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "user_id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "course_id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "phone": {
+                        "type": "string",
+                        "example": "+123456789"
+                    },
+                    "salary": {
+                        "type": "integer",
+                        "example": 50000
+                    },
+                    "course": {
+                        "type": "array",
+                        "items": {
+                            "properties": {
+                                "id": {
+                                    "type": "integer",
+                                    "example": 1
+                                },
+                                "name": {
+                                    "type": "string",
+                                    "example": "Mathematics 101"
+                                },
+                                "description": {
+                                    "type": "string",
+                                    "example": "Basic Mathematics course"
+                                },
+                                "price": {
+                                    "type": "integer",
+                                    "example": 300
+                                },
+                                "room_id": {
+                                    "type": "integer",
+                                    "example": 2
+                                }
+                            },
+                            "type": "object"
+                        }
+                    },
+                    "skill": {
+                        "type": "array",
+                        "items": {
+                            "properties": {
+                                "id": {
+                                    "type": "integer",
+                                    "example": 1
+                                },
+                                "name": {
+                                    "type": "string",
+                                    "example": "Advanced Mathematics"
+                                },
+                                "description": {
+                                    "type": "string",
+                                    "example": "Advanced level mathematics skill"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    },
+                    "room": {
+                        "type": "array",
+                        "items": {
+                            "properties": {
+                                "id": {
+                                    "type": "integer",
+                                    "example": 1
+                                },
+                                "number": {
+                                    "type": "string",
+                                    "example": 101
+                                },
+                                "quantity_of_table": {
+                                    "type": "integer",
+                                    "example": 10
+                                },
+                                "description": {
+                                    "type": "string",
+                                    "example": "Advanced level mathematics skill"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "scheme": "bearer"
+            }
+        }
+    }
+}
